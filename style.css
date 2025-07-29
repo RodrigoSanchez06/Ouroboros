@@ -59,6 +59,7 @@ h1 {
 }
 
 .card-back {
+  /* RUTA RELATIVA CORRECTA */
   background-image: url('portada.png');
 }
 

@@ -14,11 +14,13 @@ function generateCards() {
   for (let i = 1; i <= totalPairs; i++) {
     cards.push({
       id: i,
-      img: `https://raw.githubusercontent.com/RodrigoSanchez06/Ouroboros/main/memorama/A/A.${i}.jpg`,
+      // RUTA CORREGIDA
+      img: `A/A.${i}.jpg`,
     });
     cards.push({
       id: i,
-      img: `https://raw.githubusercontent.com/RodrigoSanchez06/Ouroboros/main/memorama/B/B.${i}.jpg`,
+      // RUTA CORREGIDA
+      img: `B/B.${i}.jpg`,
     });
   }
 
@@ -38,7 +40,7 @@ function startGame() {
   scoreDisplay.textContent = `Intentos: ${attempts}`;
 
   const cards = generateCards();
-  cards.forEach((card, index) => {
+  cards.forEach((card) => {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
     cardElement.dataset.id = card.id;

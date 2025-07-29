@@ -14,12 +14,12 @@ function generateCards() {
   for (let i = 1; i <= totalPairs; i++) {
     cards.push({
       id: i,
-      // RUTA CORREGIDA
+      // RUTA RELATIVA CORRECTA
       img: `A/A.${i}.jpg`,
     });
     cards.push({
       id: i,
-      // RUTA CORREGIDA
+      // RUTA RELATIVA CORRECTA
       img: `B/B.${i}.jpg`,
     });
   }

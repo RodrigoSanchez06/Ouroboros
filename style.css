@@ -59,7 +59,7 @@ h1 {
 }
 
 .card-back {
-  background-image: url('https://raw.githubusercontent.com/RodrigoSanchez06/Ouroboros/main/memorama/portada.png');
+  background-image: url('portada.png');
 }
 
 .controls {

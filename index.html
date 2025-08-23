@@ -9,6 +9,14 @@
 <body>
   <div class="game-container">
     <h1>Memongruencia</h1>
+
+    <!-- Nuevo selector -->
+    <label for="difficulty">Selecciona dificultad: </label>
+    <select id="difficulty">
+      <option value="facil">Fácil</option>
+      <option value="dificil" selected>Difícil</option>
+    </select>
+
     <p id="score">Intentos: 0</p>
     <button onclick="startGame()">Empezar</button>
     <button onclick="resetGame()">Reiniciar</button>

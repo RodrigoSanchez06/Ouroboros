@@ -1,27 +1,37 @@
 const board = document.getElementById("game-board");
 const scoreDisplay = document.getElementById("score");
 const message = document.getElementById("message");
+const difficultySelect = document.getElementById("difficulty");
 
 let attempts = 0;
 let flipped = [];
 let lockBoard = false;
 let matchedPairs = 0;
+let currentDifficulty = "dificil"; // por defecto
 
-function generateCards() {
-  const totalPairs = 20;
+// Detectar cuando cambie la dificultad
+difficultySelect.addEventListener("change", (e) => {
+  currentDifficulty = e.target.value;
+});
+
+function generateCards(difficulty) {
+  let totalPairs;
+  let folderA, folderB;
+
+  if (difficulty === "facil") {
+    totalPairs = 10; // Ejemplo: la mitad de pares
+    folderA = "AFacil";
+    folderB = "BFacil";
+  } else {
+    totalPairs = 20;
+    folderA = "A";
+    folderB = "B";
+  }
+
   const cards = [];
-
   for (let i = 1; i <= totalPairs; i++) {
-    cards.push({
-      id: i,
-      // RUTA RELATIVA CORRECTA
-      img: `A/A.${i}.jpg`,
-    });
-    cards.push({
-      id: i,
-      // RUTA RELATIVA CORRECTA
-      img: `B/B.${i}.jpg`,
-    });
+    cards.push({ id: i, img: `${folderA}/${folderA}.${i}.jpg` });
+    cards.push({ id: i, img: `${folderB}/${folderB}.${i}.jpg` });
   }
 
   return shuffle(cards);
@@ -39,7 +49,7 @@ function startGame() {
   flipped = [];
   scoreDisplay.textContent = `Intentos: ${attempts}`;
 
-  const cards = generateCards();
+  const cards = generateCards(currentDifficulty);
   cards.forEach((card) => {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
@@ -79,7 +89,9 @@ function checkMatch() {
     matchedPairs++;
     flipped = [];
     lockBoard = false;
-    if (matchedPairs === 20) {
+
+    const totalNeeded = currentDifficulty === "facil" ? 10 : 20;
+    if (matchedPairs === totalNeeded) {
       message.textContent = "¡Felicidades! Completaste el memorama 🎉";
     }
   } else {

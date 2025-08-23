@@ -14,14 +14,47 @@ body {
 
 h1 {
   margin-bottom: 10px;
+  font-size: 2em;
+  color: rgb(5, 99, 241);
+  text-shadow: 0 0 10px rgb(5, 99, 241), 0 0 20px rgb(5, 99, 241);
+}
+
+/* Selector */
+.difficulty-container {
+  margin: 15px 0;
+}
+.difficulty-container label {
+  font-size: 1.1em;
+  margin-right: 8px;
+}
+#difficulty {
+  background-color: #111;
+  color: rgb(5, 99, 241);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid rgb(5, 99, 241);
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#difficulty:hover {
+  background-color: rgb(5, 99, 241);
+  color: #000;
 }
 
 .board {
   display: grid;
-  grid-template-columns: repeat(8, 120px);
   grid-gap: 10px;
   justify-content: center;
   margin: 20px auto;
+}
+
+.board.facil {
+  grid-template-columns: repeat(10, 120px); /* filas de 4 */
+}
+
+.board.dificil {
+  grid-template-columns: repeat(8, 120px);
 }
 
 .card {
@@ -59,12 +92,7 @@ h1 {
 }
 
 .card-back {
-  /* RUTA RELATIVA CORRECTA */
   background-image: url('portada.png');
-}
-
-.controls {
-  margin-top: 10px;
 }
 
 button {

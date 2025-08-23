@@ -10,12 +10,14 @@
   <div class="game-container">
     <h1>Memongruencia</h1>
 
-    <!-- Nuevo selector -->
-    <label for="difficulty">Selecciona dificultad: </label>
-    <select id="difficulty">
-      <option value="facil">Fácil</option>
-      <option value="dificil" selected>Difícil</option>
-    </select>
+    <!-- Selector estilizado -->
+    <div class="difficulty-container">
+      <label for="difficulty">Selecciona dificultad:</label>
+      <select id="difficulty">
+        <option value="facil">Fácil</option>
+        <option value="dificil" selected>Difícil</option>
+      </select>
+    </div>
 
     <p id="score">Intentos: 0</p>
     <button onclick="startGame()">Empezar</button>

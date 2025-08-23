@@ -9,7 +9,6 @@ let lockBoard = false;
 let matchedPairs = 0;
 let currentDifficulty = "dificil"; // por defecto
 
-// Detectar cuando cambie la dificultad
 difficultySelect.addEventListener("change", (e) => {
   currentDifficulty = e.target.value;
 });
@@ -17,21 +16,26 @@ difficultySelect.addEventListener("change", (e) => {
 function generateCards(difficulty) {
   let totalPairs;
   let folderA, folderB;
+  let extA, extB;
 
   if (difficulty === "facil") {
-    totalPairs = 10; // Ejemplo: la mitad de pares
+    totalPairs = 19; // tus imágenes van del 1 al 19
     folderA = "AFacil";
     folderB = "BFacil";
+    extA = "png";   // AFacil/A.1.png
+    extB = "PNG";   // BFacil/B.1.PNG
   } else {
     totalPairs = 20;
     folderA = "A";
     folderB = "B";
+    extA = "jpg";   // A/A.1.jpg
+    extB = "jpg";   // B/B.1.jpg
   }
 
   const cards = [];
   for (let i = 1; i <= totalPairs; i++) {
-    cards.push({ id: i, img: `${folderA}/${folderA}.${i}.jpg` });
-    cards.push({ id: i, img: `${folderB}/${folderB}.${i}.jpg` });
+    cards.push({ id: i, img: `${folderA}/A.${i}.${extA}` });
+    cards.push({ id: i, img: `${folderB}/B.${i}.${extB}` });
   }
 
   return shuffle(cards);
@@ -48,6 +52,9 @@ function startGame() {
   matchedPairs = 0;
   flipped = [];
   scoreDisplay.textContent = `Intentos: ${attempts}`;
+
+  // Ajustar grid según dificultad
+  board.className = "board " + currentDifficulty;
 
   const cards = generateCards(currentDifficulty);
   cards.forEach((card) => {
@@ -90,7 +97,7 @@ function checkMatch() {
     flipped = [];
     lockBoard = false;
 
-    const totalNeeded = currentDifficulty === "facil" ? 10 : 20;
+    const totalNeeded = currentDifficulty === "facil" ? 19 : 20;
     if (matchedPairs === totalNeeded) {
       message.textContent = "¡Felicidades! Completaste el memorama 🎉";
     }

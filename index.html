@@ -2,30 +2,79 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memongruencia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memongruencia – Instructivo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="game-container">
-    <h1>Memongruencia</h1>
+  <div class="container">
+    <h1 class="title">Memongruencia</h1>
+    <p class="subtitle">Memorama de congruencia de triángulos inspirado en talavera mexicana</p>
 
-    <!-- Selector estilizado -->
-    <div class="difficulty-container">
-      <label for="difficulty">Selecciona dificultad:</label>
-      <select id="difficulty">
-        <option value="facil">Fácil</option>
-        <option value="dificil" selected>Difícil</option>
-      </select>
+    <div class="card-doc">
+      <h2>Instructivo</h2>
+      <p>
+        Este juego está basado en la <strong>congruencia de triángulos</strong>. Para entender la dinámica,
+        primero recordemos <em>cuándo</em> dos triángulos son congruentes.
+      </p>
+
+      <h3>Criterios de congruencia</h3>
+
+      <!-- LLL -->
+      <h4>LLL</h4>
+      <p>
+        Identificaremos que un triángulo es congruente a otro cuando <strong>sus tres lados son iguales</strong>.
+        En este juego las cartas estarán marcadas con <strong>letras en los lados</strong>.
+        En la ilustración (incisos <em>a</em> y <em>b</em>) se observa que son congruentes entre sí
+        porque todos sus lados son iguales.
+      </p>
+      <img src="ImagesInstructivo/LLL.png" alt="Criterio LLL: tres lados iguales" class="img-instructivo"/>
+
+      <!-- ALA / AAL -->
+      <h4>ALA o AAL</h4>
+      <p>
+        El segundo criterio es <strong>ALA</strong> o <strong>AAL</strong>. Considera que la suma de los ángulos internos
+        de un triángulo es <strong>180°</strong>; por ello, al conocer dos ángulos puede deducirse el tercero.
+        De esta forma, <strong>AAL equivale a ALA</strong>, por lo que ambos son válidos.
+        En el ejemplo, el inciso <em>a</em> es una respuesta válida al tener dos ángulos y un lado que corresponden
+        a la figura original. En cambio, en el inciso <em>b</em> el <strong>lado 2 no está comprendido</strong>
+        entre el ángulo 1 y el 2, por lo que <strong>no</strong> son triángulos congruentes.
+      </p>
+      <img src="ImagesInstructivo/ALA.png" alt="Criterio ALA o AAL" class="img-instructivo"/>
+
+      <!-- LAL -->
+      <h4>LAL</h4>
+      <p>
+        En este caso observamos el criterio <strong>LAL</strong>: dos lados y el <em>ángulo comprendido</em> entre ellos
+        deben coincidir. En la imagen, el triángulo congruente es el inciso <em>a</em> porque cumple esta condición.
+        El inciso <em>b</em> sería incorrecto, ya que <strong>LLA</strong> no es un criterio válido en general
+        (solo en triángulos rectángulos podría deducirse un lado con el <em>Teorema de Pitágoras</em>).
+      </p>
+      <img src="ImagesInstructivo/LAL.png" alt="Criterio LAL" class="img-instructivo"/>
+
+      <!-- Cómo se juega (intacto) -->
+      <h3>Cómo se juega</h3>
+      <ul class="list">
+        <li>Voltea dos tarjetas. Si forman un par congruente según los criterios, te las quedas.</li>
+        <li>Si no, se voltean de nuevo y sigues intentando.</li>
+        <li>Hay <strong>dos dificultades</strong>:
+          <ul class="list">
+            <li><strong>Fácil</strong>: menos pares y colores distintos para guiarte.</li>
+            <li><strong>Difícil</strong>: más pares y todas las cartas del mismo color.</li>
+          </ul>
+        </li>
+        <li>Convenciones visuales:
+          <ul class="list">
+            <li>Lados: señalados por letras <strong>A, B, C</strong> con una llave sobre el lado.</li>
+            <li>Ángulos: marcados con “pétalos” (1, 2 o 3) para distinguirlos.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="btns">
+        <a class="btn" href="game.html">🚀 Jugar Memongruencia</a>
+      </div>
     </div>
-
-    <p id="score">Intentos: 0</p>
-    <button onclick="startGame()">Empezar</button>
-    <button onclick="resetGame()">Reiniciar</button>
-    <div id="game-board" class="board"></div>
-    <div class="controls"></div>
-    <p id="message"></p>
   </div>
-  <script src="script.js" defer></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ function generateCards(difficulty) {
     folderA = "AFacil";
     folderB = "BFacil";
     extA = "png";   // AFacil/A.1.png
-    extB = "PNG";   // BFacil/B.1.PNG
+    extB = "png";   // BFacil/B.1.PNG
   } else {
     totalPairs = 20;
     folderA = "A";
